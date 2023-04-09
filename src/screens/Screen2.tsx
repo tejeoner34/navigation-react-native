@@ -1,9 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
- 
+import {useNavigation} from '@react-navigation/native';
+import {View, Text, Button} from 'react-native';
+import { styles } from '../theme/appTheme';
+
+// Otra forma de acceder al objeto de navegacion es a traves de un hook que
+// nos aporta la libreria
 export const Screen2 = () => {
-  return <View>
-    <Text>Screen 2</Text>
-  </View>;
+  const navigator = useNavigation<any>();
+  return (
+    <View style={styles.main}>
+      <Text>Screen 2</Text>
+      <Button
+        title="Go to Screen 3"
+        onPress={() => navigator.navigate('screen3')}
+      />
+    </View>
+  );
 };
- 
